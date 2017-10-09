@@ -1,5 +1,5 @@
 
-package exchange.currency.crypto.com.cryptocurrencyexchange.json;
+package exchange.currency.crypto.com.cryptocurrencyexchange.model.json;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
