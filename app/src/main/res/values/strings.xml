@@ -3,4 +3,5 @@
     <string name="markets">Markets</string>
     <string name="rate_changes">Rate changes</string>
     <string name="my_rates">My Rates</string>
+    <string name="market_item_name">Market</string>
 </resources>
