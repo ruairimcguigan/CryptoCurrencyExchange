@@ -27,9 +27,9 @@ public class CryptoQuery {
     @Expose
     private String change;
 
-    @SerializedName("markets")
+    @SerializedName("marketUpdates")
     @Expose
-    private List<Market> markets = null;
+    private List<MarketUpdate> marketUpdates = null;
 
     public String getBase() {
         return base;
@@ -71,11 +71,11 @@ public class CryptoQuery {
         this.change = change;
     }
 
-    public List<Market> getMarkets() {
-        return markets;
+    public List<MarketUpdate> getMarketUpdates() {
+        return marketUpdates;
     }
 
-    public void setMarkets(List<Market> markets) {
-        this.markets = markets;
+    public void setMarketUpdates(List<MarketUpdate> marketUpdates) {
+        this.marketUpdates = marketUpdates;
     }
 }

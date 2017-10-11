@@ -4,9 +4,6 @@ import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BasePresent
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.markets.MarketView.Presenter;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.markets.MarketView.View;
 
-/**
- * Created by c0249298 on 04/10/2017.
- */
 
 public class MarketPresenter extends BasePresenter<View> implements Presenter {
 

@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Crypto Currency Exchange</string>
-    <string name="markets">Markets</string>
+    <string name="marketUpdates">Markets</string>
     <string name="rate_changes">Rate changes</string>
     <string name="my_rates">My Rates</string>
     <string name="market_item_name">Market</string>
+    <string name="fragment_not_created_message">New fragment should have been created:  %s</string>
 </resources>

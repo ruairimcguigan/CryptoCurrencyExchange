@@ -4,7 +4,7 @@ package exchange.currency.crypto.com.cryptocurrencyexchange.model.json;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Market {
+public class MarketUpdate {
 
     @SerializedName("market")
     @Expose
