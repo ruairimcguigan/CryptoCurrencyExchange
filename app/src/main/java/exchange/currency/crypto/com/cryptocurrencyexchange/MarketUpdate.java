@@ -1,5 +1,5 @@
 
-package exchange.currency.crypto.com.cryptocurrencyexchange.model.json;
+package exchange.currency.crypto.com.cryptocurrencyexchange;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -42,4 +42,9 @@ public class MarketUpdate {
         this.volume = volume;
     }
 
+    public MarketUpdate(String market, String price, String volume) {
+        this.market = market;
+        this.price = price;
+        this.volume = volume;
+    }
 }

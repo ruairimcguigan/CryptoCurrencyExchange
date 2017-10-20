@@ -17,7 +17,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
-import exchange.currency.crypto.com.cryptocurrencyexchange.model.json.MarketUpdate;
+import exchange.currency.crypto.com.cryptocurrencyexchange.MarketUpdate;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseView;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseFragmentInteractionListener;
 
@@ -25,7 +25,7 @@ import static android.view.View.VISIBLE;
 
 
 /**
- * * The {@link Fragment} that receives markets update data from its {@link MarketPresenter} and
+ * The {@link Fragment} that receives markets update data from its {@link MarketPresenter} and
  * renders a list of markets, with name, price and volume, and also handles user actions.
  */
 public class MarketFragment extends BaseView implements MarketView.View{
@@ -42,13 +42,20 @@ public class MarketFragment extends BaseView implements MarketView.View{
     private BaseFragmentInteractionListener baseFragmentInteractionListener;
     private MarketAdapter marketAdapter;
     private List<MarketUpdate> marketsData = new ArrayList<>();
-    private MarketView.Presenter presenter;
+    private MarketPresenter presenter;
     private boolean shouldRefreshMarkets;
+    private MarketView view;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setPresenter();
+        presenter.getMarketUpdates();
+    }
+
+    private void setPresenter() {
+        presenter = new MarketPresenter(view);
     }
 
     @Nullable

@@ -3,7 +3,10 @@ package exchange.currency.crypto.com.cryptocurrencyexchange.model.json;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import exchange.currency.crypto.com.cryptocurrencyexchange.MarketUpdate;
 
 public class CryptoQuery {
 
@@ -27,9 +30,9 @@ public class CryptoQuery {
     @Expose
     private String change;
 
-    @SerializedName("marketUpdates")
+    @SerializedName("markets")
     @Expose
-    private List<MarketUpdate> marketUpdates = null;
+    private List<MarketUpdate> marketUpdates;
 
     public String getBase() {
         return base;

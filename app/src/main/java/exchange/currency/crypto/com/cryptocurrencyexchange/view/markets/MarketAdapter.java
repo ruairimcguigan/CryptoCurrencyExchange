@@ -17,7 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
-import exchange.currency.crypto.com.cryptocurrencyexchange.model.json.MarketUpdate;
+import exchange.currency.crypto.com.cryptocurrencyexchange.MarketUpdate;
 
 public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 

@@ -54,24 +54,20 @@ public class HostActivity extends BaseActivity implements BaseFragmentInteractio
     }
 
     private OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    showFragment(MarketFragment.class);
-                    return true;
-                case R.id.navigation_dashboard:
-                    showFragment(RateChangeFragment.class);
-                     return true;
-                case R.id.navigation_notifications:
-                    showFragment(MyRatesFragment.class);
-                    return true;
-            }
-            return false;
-        }
-    };
+            = item -> {
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        showFragment(MarketFragment.class);
+                        return true;
+                    case R.id.navigation_dashboard:
+                        showFragment(RateChangeFragment.class);
+                         return true;
+                    case R.id.navigation_notifications:
+                        showFragment(MyRatesFragment.class);
+                        return true;
+                }
+                return false;
+            };
 
     @Override
     protected void onResume() {
