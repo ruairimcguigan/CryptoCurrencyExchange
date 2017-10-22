@@ -17,16 +17,14 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
-import exchange.currency.crypto.com.cryptocurrencyexchange.MarketUpdate;
+import exchange.currency.crypto.com.cryptocurrencyexchange.model.json.MarketUpdate;
 
 public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketViewHolder> {
 
-    private List<MarketUpdate> marketUpdates = new ArrayList<>();
+    private List<MarketUpdate> data = new ArrayList<>();
     private Fragment fragment;
 
-    public MarketAdapter(Fragment fragment, List<MarketUpdate> marketUpdates) {
-        this.marketUpdates = marketUpdates;
-        this.fragment = fragment;
+    public MarketAdapter() {
     }
 
     @Override
@@ -41,18 +39,23 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
 
     @Override
     public void onBindViewHolder(MarketViewHolder holder, int position) {
-        MarketUpdate marketUpdate = marketUpdates.get(position);
+        MarketUpdate marketUpdate = data.get(position);
 
         holder.setMarketName(marketUpdate.getMarket());
-        holder.setPrice(BigDecimal.valueOf(Long.parseLong(marketUpdate.getPrice())));
         holder.setVolume(marketUpdate.getVolume());
+        holder.setPrice(BigDecimal.valueOf(Long.parseLong(marketUpdate.getPrice())));
     }
 
-    //todo add method depending on list returned or item
+    void populate(MarketUpdate marketUpdate){
+        if (marketUpdate != null){
+            this.data.add(0, marketUpdate);
+            notifyItemChanged(0);
+        }
+    }
 
     @Override
     public int getItemCount() {
-        return marketUpdates.size();
+        return data.size();
     }
 
 

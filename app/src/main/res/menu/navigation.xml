@@ -4,7 +4,7 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/marketUpdates"/>
+        android:title="@string/data"/>
 
     <item
         android:id="@+id/navigation_dashboard"

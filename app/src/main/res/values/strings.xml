@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Crypto Currency Exchange</string>
-    <string name="marketUpdates">Markets</string>
+    <string name="data">Markets</string>
     <string name="rate_changes">Rate changes</string>
     <string name="my_rates">My Rates</string>
     <string name="market_item_name">Market</string>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
-import exchange.currency.crypto.com.cryptocurrencyexchange.MarketUpdate;
+import exchange.currency.crypto.com.cryptocurrencyexchange.model.json.MarketUpdate;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseView;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseFragmentInteractionListener;
 
@@ -44,14 +46,14 @@ public class MarketFragment extends BaseView implements MarketView.View{
     private List<MarketUpdate> marketsData = new ArrayList<>();
     private MarketPresenter presenter;
     private boolean shouldRefreshMarkets;
-    private MarketView view;
+    private MarketView.View view;
 
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setPresenter();
-        presenter.getMarketUpdates();
+        presenter.getCurrencyUpdatesPerMarket();
     }
 
     private void setPresenter() {
@@ -62,10 +64,27 @@ public class MarketFragment extends BaseView implements MarketView.View{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+
+        View rootView = inflater.inflate(R.layout.fragment_market, container, false);
+
+        ButterKnife.bind(this, rootView);
+        setMarketList();
+        setAdapter();
         Toast.makeText(getActivity(), "Market Fragment", Toast.LENGTH_SHORT).show();
+        setProgressBar(true);
 
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return rootView;
+    }
 
+    private void setAdapter() {
+        marketAdapter = new MarketAdapter();
+        marketsList.setAdapter(marketAdapter);
+    }
+
+    private void setMarketList(){
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        marketsList.setHasFixedSize(true);
+        marketsList.setLayoutManager(layoutManager);
     }
 
     @Override
@@ -84,8 +103,11 @@ public class MarketFragment extends BaseView implements MarketView.View{
         baseFragmentInteractionListener = (BaseFragmentInteractionListener)getActivity();
     }
 
+
     @Override
     public void showMarketUpdates(MarketUpdate marketUpdate) {
-
+        if (marketUpdate != null) {
+            marketAdapter.populate(marketUpdate);
+        }
     }
 }

@@ -8,6 +8,11 @@ import retrofit2.http.Path;
 
 public interface CryptoCurrencyService {
 
+    /**
+     * Get markets for specific currency
+     * @param currency
+     * @return
+     */
     @GET("{currency}")
     Single<CryptoResult> cryptoMarketQuery(@Path("currency") String currency);
 }
