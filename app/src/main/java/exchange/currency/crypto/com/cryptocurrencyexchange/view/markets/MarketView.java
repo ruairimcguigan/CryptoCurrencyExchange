@@ -15,7 +15,7 @@ import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseViewInt
 
     interface Presenter extends BasePresenterInteractor<View> {
 
-//        void getMarketUpdates();
+        void getMarketUpdates();
 
         void getCurrencyUpdatesPerMarket();
     }

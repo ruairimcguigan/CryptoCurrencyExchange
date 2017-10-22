@@ -46,7 +46,6 @@ public class MarketFragment extends BaseView implements MarketView.View{
     private List<MarketUpdate> marketsData = new ArrayList<>();
     private MarketPresenter presenter;
     private boolean shouldRefreshMarkets;
-    private MarketView.View view;
 
 
     @Override
@@ -57,7 +56,7 @@ public class MarketFragment extends BaseView implements MarketView.View{
     }
 
     private void setPresenter() {
-        presenter = new MarketPresenter(view);
+        presenter = new MarketPresenter(this);
     }
 
     @Nullable

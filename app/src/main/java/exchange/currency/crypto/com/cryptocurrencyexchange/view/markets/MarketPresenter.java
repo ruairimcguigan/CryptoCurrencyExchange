@@ -24,20 +24,20 @@ public class MarketPresenter extends BasePresenter<View> implements Presenter {
         this.view = view;
     }
 
-//    @Override
-//    public void getMarketUpdates() {
-//
-//       CryptoCurrencyService currencyService = new CryptoCurrencyServiceFactory().create();
-//       currencyService.cryptoMarketQuery("btc-usd")
-//               .subscribeOn(Schedulers.io())
-//               .observeOn(AndroidSchedulers.mainThread())
-//               .subscribe((CryptoResult marketUpdate) -> {
-//                   Log.d(TAG, "getCurrencyUpdatesAllDetails: " + marketUpdate.getQuery().getCurrencyUpdatesAllDetails());
-//
-////                   view.showMarketUpdates(marketUpdate.getQuery().getCurrencyUpdatesAllDetails());
-//               });
-//
-//    }
+    @Override
+    public void getMarketUpdates() {
+
+       CryptoCurrencyService currencyService = new CryptoCurrencyServiceFactory().create();
+       currencyService.cryptoMarketQuery("btc-usd")
+               .subscribeOn(Schedulers.io())
+               .observeOn(AndroidSchedulers.mainThread())
+               .subscribe((CryptoResult marketUpdate) -> {
+                   Log.d(TAG, "getCurrencyUpdatesAllDetails: " + marketUpdate.getQuery().getCurrencyUpdatesAllDetails());
+
+//                   view.showMarketUpdates(marketUpdate.getQuery().getCurrencyUpdatesAllDetails());
+               });
+
+    }
 
     @Override
     public void getCurrencyUpdatesPerMarket() {

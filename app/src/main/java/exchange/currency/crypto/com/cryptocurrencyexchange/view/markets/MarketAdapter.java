@@ -43,7 +43,7 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
 
         holder.setMarketName(marketUpdate.getMarket());
         holder.setVolume(marketUpdate.getVolume());
-        holder.setPrice(BigDecimal.valueOf(Long.parseLong(marketUpdate.getPrice())));
+        holder.setPrice(marketUpdate.getPrice());
     }
 
     void populate(MarketUpdate marketUpdate){
@@ -79,9 +79,9 @@ public class MarketAdapter extends RecyclerView.Adapter<MarketAdapter.MarketView
             this.nameView.setText(name);
         }
 
-        void setPrice(BigDecimal price){
+        void setPrice(String price){
             if (price != null){
-                this.priceView.setText(PRICE_FORMAT.format(price.floatValue()));
+                this.priceView.setText(price);
             }
         }
 
