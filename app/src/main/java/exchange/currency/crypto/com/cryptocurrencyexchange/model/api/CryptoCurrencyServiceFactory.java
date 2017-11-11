@@ -1,5 +1,6 @@
 package exchange.currency.crypto.com.cryptocurrencyexchange.model.api;
 
+
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import exchange.currency.crypto.com.cryptocurrencyexchange.util.Constants;

@@ -1,0 +1,80 @@
+ext {
+    minSdkVersion = 21
+    compileSdkVersion = 25
+    buildToolsVersion = "25.0.2"
+    targetSdkVersion = 25
+
+    //Android
+    androidSupportVersion = "26.1.0"
+    butterknifeVersion = "8.8.1"
+    rxandroidVersion = "2.0.1"
+    okhttpVersion = "3.8.0"
+    retrofitVersion = "2.1.0"
+    timberVersion = "4.3.1"
+    daggerVersion = "2.11"
+    jacksonAnnotationVersion = "2.7.0"
+    rxbindingVersion = "2.0.0"
+    javaAnnotationVersion = "1.0"
+    leakCanaryVersion = "1.5.1"
+    constraintLayoutVersion = "1.0.2"
+    rxjavaInteropVersion = "0.8.1"
+    rxbindingRecyclerviewVersion = "-v7:2.0.0"
+    rxjava2AdapterVersion = "1.0.0"
+
+
+    //Java
+    rxjavaVersion = "2.0.5"
+
+    //Testing
+    junitVersion = "4.12"
+    mockitoVersion = "1.10.19"
+    supportTestVesion = "0.5"
+    espressoVersion = "2.2.2"
+
+    libraries = [
+            androidSupport      : "com.android.support:support-v4:${androidSupportVersion}",
+            appCompat           : "com.android.support:appcompat-v7:${androidSupportVersion}",
+            designSupport       : "com.android.support:design:${androidSupportVersion}",
+            vectorSupport       : "com.android.support:support-vector-drawable:${androidSupportVersion}",
+            constraintLayout    : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            cardView            : "com.android.support:cardview-v7:${androidSupportVersion}",
+            recyclerView        : "com.android.support:recyclerview-v7:${androidSupportVersion}",
+            rxjava              : "io.reactivex.rxjava2:rxjava:${rxjavaVersion}",
+            rxAdapter           : "com.squareup.retrofit2:adapter-rxjava:2.3.0${rxjavaVersion}",
+            rxandroid           : "io.reactivex:rxandroid:${rxandroidVersion}",
+            rxjavaInterop       : "com.github.akarnokd:rxjava2-interop:${rxjavaInteropVersion}",
+            rxbindingRCView     : "com.jakewharton.rxbinding2:rxbinding-recyclerview${rxbindingRecyclerviewVersion}",
+
+            timber              : "com.jakewharton.timber:timber:${timberVersion}",
+            butterknife         : "com.jakewharton:butterknife:${butterknifeVersion}",
+            okhttp              : "com.squareup.okhttp3:okhttp:${okhttpVersion}",
+            okhttpLogging       : "com.squareup.okhttp3:logging-interceptor:${okhttpVersion}",
+            retrofit            : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            gsonConverter       : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            dagger              : "com.google.dagger:dagger:${daggerVersion}",
+            daggerProcessor    : "com.google.dagger:dagger-android-processor:$daggerVersion",
+            rxbinding           : "com.jakewharton.rxbinding2:rxbinding:${rxbindingVersion}",
+            jacksonannotation   : "com.fasterxml.jackson.core:jackson-annotations:${jacksonAnnotationVersion}",
+            javaAnnotation      : "javax.annotation:jsr250-api:${javaAnnotationVersion}",
+            leakCanary          : "com.squareup.leakcanary:leakcanary-android::${leakCanaryVersion}",
+            leakCanaryRelease   : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
+            leakCanaryTest      : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
+            rxRetroAdapter      : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${rxjava2AdapterVersion}"
+
+    ]
+
+    aptLibraries = [
+            butterknifeCompiler: "com.jakewharton:butterknife-compiler:${butterknifeVersion}",
+            daggerCompiler     : "com.google.dagger:dagger-compiler:${daggerVersion}",
+    ]
+
+    testLibraries = [
+            junit             : "junit:junit:${junitVersion}",
+            mockito           : "org.mockito:mockito-core:${mockitoVersion}",
+            supportAnnotations: "com.android.support:support-annotations:${androidSupportVersion}",
+            supportTestRunner : "com.android.support.test:runner:${supportTestVesion}",
+            supportTestRules  : "com.android.support.test:rules:${supportTestVesion}",
+            espresso          : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            espressoContrib   : "com.android.support.test.espresso:espresso-contrib:${espressoVersion}",
+    ]
+}
