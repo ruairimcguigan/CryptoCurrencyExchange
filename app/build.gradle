@@ -60,4 +60,17 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.5.0'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    // There is a better way to declare and structure dependencies.
+    // Will be refactored later
+    def daggerVersion = '2.11'
+    def butterKnifeVersion = '8.7.0'
+
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
+
+    compile "com.google.dagger:dagger:$daggerVersion"
+    compile "com.google.dagger:dagger-android:$daggerVersion"
+    compile "com.jakewharton:butterknife:$butterKnifeVersion"
 }
