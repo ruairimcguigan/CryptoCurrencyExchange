@@ -1,6 +1,5 @@
 package exchange.currency.crypto.com.cryptocurrencyexchange.ui.common.view;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -8,13 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasFragmentInjector;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
 import exchange.currency.crypto.com.cryptocurrencyexchange.navigation.Navigator;
-import exchange.currency.crypto.com.cryptocurrencyexchange.util.Constants;
+
+import static android.support.v4.app.FragmentManager.OnBackStackChangedListener;
 
 /**
  * Abstract Activity for all Activities to extend.
@@ -34,7 +33,7 @@ import exchange.currency.crypto.com.cryptocurrencyexchange.util.Constants;
  */
 
 public abstract class BaseActivity extends AppCompatActivity
-        implements FragmentManager.OnBackStackChangedListener, HasFragmentInjector{
+        implements HasFragmentInjector, OnBackStackChangedListener {
 
     @Inject
     protected Navigator navigator;
@@ -42,21 +41,14 @@ public abstract class BaseActivity extends AppCompatActivity
     @Inject
     DispatchingAndroidInjector<android.app.Fragment> fragmentInjector;
 
-    /**
-     * please see package-info.java for reasons for injecting FragmentManager
-     */
-    @Inject
-    @Named(Constants.ACTIVITY_FRAGMENT_MANAGER)
-    protected FragmentManager fragmentManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fragmentManager.addOnBackStackChangedListener(this);
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
     }
 
-    public <T extends Fragment> void showFragment(Class<T> fragmentClass, Bundle bundle, boolean addToBackStack) {
+    public final <T extends Fragment> void showFragment(Class<T> fragmentClass, Bundle bundle, boolean addToBackStack) {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(fragmentClass.getSimpleName());
@@ -83,7 +75,7 @@ public abstract class BaseActivity extends AppCompatActivity
         fragmentTransaction.commit();
     }
 
-    public <T extends Fragment> void showFragment(Class<T> fragmentClass) {
+    public final <T extends Fragment> void showFragment(Class<T> fragmentClass) {
         showFragment(fragmentClass, null, false);
     }
 
