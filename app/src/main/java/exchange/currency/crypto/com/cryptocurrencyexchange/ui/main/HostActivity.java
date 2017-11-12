@@ -5,25 +5,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.app.Fragment;
-import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dagger.android.AndroidInjector;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
+import exchange.currency.crypto.com.cryptocurrencyexchange.ui.common.view.BaseActivity;
 import exchange.currency.crypto.com.cryptocurrencyexchange.util.NetworkHelper;
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseActivity;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseFragmentInteractionListener;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.markets.MarketFragment;
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.myrates.MyRatesFragment;
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.ratechanges.RateChangeFragment;
 
 import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
+
+//import exchange.currency.crypto.com.cryptocurrencyexchange.view.myrates.MyRatesFragment;
+//import exchange.currency.crypto.com.cryptocurrencyexchange.view.ratechanges.RateChangeFragment;
 
 /**
  * The container responsible for showing and destroying relevant {@link Fragment}, handling
@@ -60,10 +60,10 @@ public class HostActivity extends BaseActivity implements BaseFragmentInteractio
                         showFragment(MarketFragment.class);
                         return true;
                     case R.id.navigation_dashboard:
-                        showFragment(RateChangeFragment.class);
+//                        showFragment(exchange.currency.crypto.com.cryptocurrencyexchange.view.ratechanges.RateChangeFragment.class);
                          return true;
                     case R.id.navigation_notifications:
-                        showFragment(MyRatesFragment.class);
+//                        showFragment(exchange.currency.crypto.com.cryptocurrencyexchange.view.myrates.MyRatesFragment.class);
                         return true;
                 }
                 return false;
@@ -98,5 +98,15 @@ public class HostActivity extends BaseActivity implements BaseFragmentInteractio
     // todo - move to presenter?
     private void setNoConnectivityBroadcast() {
         connectivityIntentFilter = new IntentFilter(CONNECTIVITY_ACTION);
+    }
+
+    @Override
+    public AndroidInjector<android.app.Fragment> fragmentInjector() {
+        return null;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
     }
 }

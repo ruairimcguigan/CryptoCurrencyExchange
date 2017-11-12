@@ -1,27 +1,59 @@
-package exchange.currency.crypto.com.cryptocurrencyexchange.view.base;
+package exchange.currency.crypto.com.cryptocurrencyexchange.ui.common.view;
 
+import android.app.FragmentManager;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasFragmentInjector;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
+import exchange.currency.crypto.com.cryptocurrencyexchange.navigation.Navigator;
+import exchange.currency.crypto.com.cryptocurrencyexchange.util.Constants;
 
 /**
+ * Abstract Activity for all Activities to extend.
+ *
+ * The BaseActivity contains dagger.android code that is very similar to the code in App.
+ * The only difference is that the BaseActivity implements HasFragmentInjector, indicating
+ * that fragments are to participate in dagger.android injection.
+ *
+ * The BaseActivity could extend DaggerActivity instead of implementing HasFragmentInjector.
+ * However, inheritance should be avoided so that the option to inherit from something else
+ * later on is open.
+ *
  * The abstract base container responsible for showing and destroying {@link Fragment} and handling
  * back and up navigation using the Fragment back stack. This is based on the
  * Fragment Oriented Architecture explained here
  * http://vinsol.com/blog/2014/09/15/advocating-fragment-oriented-applications-in-android/
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements FragmentManager.OnBackStackChangedListener{
+public abstract class BaseActivity extends AppCompatActivity
+        implements FragmentManager.OnBackStackChangedListener, HasFragmentInjector{
+
+    @Inject
+    protected Navigator navigator;
+
+    @Inject
+    DispatchingAndroidInjector<android.app.Fragment> fragmentInjector;
+
+    /**
+     * please see package-info.java for reasons for injecting FragmentManager
+     */
+    @Inject
+    @Named(Constants.ACTIVITY_FRAGMENT_MANAGER)
+    protected FragmentManager fragmentManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportFragmentManager().addOnBackStackChangedListener(this);
+        fragmentManager.addOnBackStackChangedListener(this);
     }
 
     public <T extends Fragment> void showFragment(Class<T> fragmentClass, Bundle bundle, boolean addToBackStack) {
