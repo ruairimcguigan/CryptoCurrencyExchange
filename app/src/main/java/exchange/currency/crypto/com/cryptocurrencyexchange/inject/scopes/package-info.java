@@ -6,4 +6,4 @@
  * (there is no PerApplication scope annotation). This is done in order to support singleton
  * scoped classes from other libraries (which do not have access to this project's custom scopes).
  */
-package exchange.currency.crypto.com.cryptocurrencyexchange.inject;
+package exchange.currency.crypto.com.cryptocurrencyexchange.inject.scopes;

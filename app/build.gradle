@@ -63,7 +63,7 @@ dependencies {
 
     compile rootProject.ext.libraries.dagger
     annotationProcessor rootProject.ext.aptLibraries.daggerCompiler
-    annotationProcessor rootProject.ext.libraries.daggerProcessor
+    compile rootProject.ext.libraries.daggerSupport
 
     testCompile rootProject.ext.testLibraries.junit
 

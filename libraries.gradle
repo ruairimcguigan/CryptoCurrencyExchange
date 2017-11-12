@@ -11,7 +11,7 @@ ext {
     okhttpVersion = "3.8.0"
     retrofitVersion = "2.1.0"
     timberVersion = "4.3.1"
-    daggerVersion = "2.11"
+    daggerVersion = "2.12"
     jacksonAnnotationVersion = "2.7.0"
     rxbindingVersion = "2.0.0"
     javaAnnotationVersion = "1.0"
@@ -52,7 +52,7 @@ ext {
             retrofit            : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             gsonConverter       : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             dagger              : "com.google.dagger:dagger:${daggerVersion}",
-            daggerProcessor    : "com.google.dagger:dagger-android-processor:$daggerVersion",
+            daggerSupport       : "com.google.dagger:dagger-android-support:${daggerVersion}",
             rxbinding           : "com.jakewharton.rxbinding2:rxbinding:${rxbindingVersion}",
             jacksonannotation   : "com.fasterxml.jackson.core:jackson-annotations:${jacksonAnnotationVersion}",
             javaAnnotation      : "javax.annotation:jsr250-api:${javaAnnotationVersion}",
@@ -60,7 +60,6 @@ ext {
             leakCanaryRelease   : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
             leakCanaryTest      : "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}",
             rxRetroAdapter      : "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:${rxjava2AdapterVersion}"
-
     ]
 
     aptLibraries = [

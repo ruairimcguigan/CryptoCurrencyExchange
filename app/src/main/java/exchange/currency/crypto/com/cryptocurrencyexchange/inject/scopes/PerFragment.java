@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package exchange.currency.crypto.com.cryptocurrencyexchange.inject;
+package exchange.currency.crypto.com.cryptocurrencyexchange.inject.scopes;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
