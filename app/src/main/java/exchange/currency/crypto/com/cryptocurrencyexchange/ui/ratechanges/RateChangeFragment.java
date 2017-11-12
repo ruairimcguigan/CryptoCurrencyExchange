@@ -1,4 +1,4 @@
-package exchange.currency.crypto.com.cryptocurrencyexchange.view.ratechanges;
+package exchange.currency.crypto.com.cryptocurrencyexchange.ui.ratechanges;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseView;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseFragmentInteractionListener;
+import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseView;
 
 /**
  * Created by aquidigitalltd on 11/10/2017.

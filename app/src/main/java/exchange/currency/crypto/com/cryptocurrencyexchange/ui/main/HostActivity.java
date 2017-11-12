@@ -1,4 +1,4 @@
-package exchange.currency.crypto.com.cryptocurrencyexchange.view;
+package exchange.currency.crypto.com.cryptocurrencyexchange.ui.main;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,14 +16,13 @@ import butterknife.ButterKnife;
 import dagger.android.AndroidInjector;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
 import exchange.currency.crypto.com.cryptocurrencyexchange.ui.common.view.BaseActivity;
+import exchange.currency.crypto.com.cryptocurrencyexchange.ui.markets.MarketFragment;
+import exchange.currency.crypto.com.cryptocurrencyexchange.ui.myrates.MyRatesFragment;
+import exchange.currency.crypto.com.cryptocurrencyexchange.ui.ratechanges.RateChangeFragment;
 import exchange.currency.crypto.com.cryptocurrencyexchange.util.NetworkHelper;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseFragmentInteractionListener;
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.markets.MarketFragment;
 
 import static android.net.ConnectivityManager.CONNECTIVITY_ACTION;
-
-//import exchange.currency.crypto.com.cryptocurrencyexchange.view.myrates.MyRatesFragment;
-//import exchange.currency.crypto.com.cryptocurrencyexchange.view.ratechanges.RateChangeFragment;
 
 /**
  * The container responsible for showing and destroying relevant {@link Fragment}, handling
@@ -55,19 +54,19 @@ public class HostActivity extends BaseActivity implements BaseFragmentInteractio
 
     private OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        showFragment(MarketFragment.class);
-                        return true;
-                    case R.id.navigation_dashboard:
-//                        showFragment(exchange.currency.crypto.com.cryptocurrencyexchange.view.ratechanges.RateChangeFragment.class);
-                         return true;
-                    case R.id.navigation_notifications:
-//                        showFragment(exchange.currency.crypto.com.cryptocurrencyexchange.view.myrates.MyRatesFragment.class);
-                        return true;
-                }
-                return false;
-            };
+        switch (item.getItemId()) {
+            case R.id.navigation_home:
+                showFragment(MarketFragment.class);
+                return true;
+            case R.id.navigation_dashboard:
+                showFragment(RateChangeFragment.class);
+                return true;
+            case R.id.navigation_notifications:
+                showFragment(MyRatesFragment.class);
+                return true;
+        }
+        return false;
+    };
 
     @Override
     protected void onResume() {

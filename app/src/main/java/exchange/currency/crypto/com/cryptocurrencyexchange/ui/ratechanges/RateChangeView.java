@@ -1,4 +1,4 @@
-package exchange.currency.crypto.com.cryptocurrencyexchange.view.ratechanges;
+package exchange.currency.crypto.com.cryptocurrencyexchange.ui.ratechanges;
 
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BasePresenterInteractor;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseViewInteractor;

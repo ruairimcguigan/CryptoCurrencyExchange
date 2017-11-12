@@ -1,4 +1,4 @@
-package exchange.currency.crypto.com.cryptocurrencyexchange.view.markets;
+package exchange.currency.crypto.com.cryptocurrencyexchange.ui.markets;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -20,14 +20,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import exchange.currency.crypto.com.cryptocurrencyexchange.R;
 import exchange.currency.crypto.com.cryptocurrencyexchange.model.json.MarketUpdate;
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseView;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseFragmentInteractionListener;
+import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BaseView;
 
 import static android.view.View.VISIBLE;
 
 
 /**
- * The {@link Fragment} that receives markets update data from its {@link MarketPresenter} and
+ * The {@link Fragment} that receives markets update data from its presenter and
  * renders a list of markets, with name, price and volume, and also handles user actions.
  */
 public class MarketFragment extends BaseView implements MarketView.View{

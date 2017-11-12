@@ -48,7 +48,7 @@ public abstract class BaseActivity extends AppCompatActivity
         getSupportFragmentManager().addOnBackStackChangedListener(this);
     }
 
-    public final <T extends Fragment> void showFragment(Class<T> fragmentClass, Bundle bundle, boolean addToBackStack) {
+    public final <T extends Fragment> void showFragment(Class<T> fragmentClass, Bundle bundle, boolean addToBackStack) throws RuntimeException {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(fragmentClass.getSimpleName());
@@ -57,9 +57,7 @@ public abstract class BaseActivity extends AppCompatActivity
             try{
                 fragment = fragmentClass.newInstance();
                 fragment.setArguments(bundle);
-            }catch (InstantiationException e){
-                throw new RuntimeException(getApplicationContext().getString(R.string.fragment_not_created_message, e));
-            } catch (IllegalAccessException e){
+            }catch (InstantiationException | IllegalAccessException e){
                 throw new RuntimeException(getApplicationContext().getString(R.string.fragment_not_created_message, e));
             }
         }

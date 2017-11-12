@@ -1,4 +1,4 @@
-package exchange.currency.crypto.com.cryptocurrencyexchange.view.markets;
+package exchange.currency.crypto.com.cryptocurrencyexchange.ui.markets;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;

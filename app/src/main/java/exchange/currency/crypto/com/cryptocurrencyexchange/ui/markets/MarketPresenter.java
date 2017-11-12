@@ -1,4 +1,4 @@
-package exchange.currency.crypto.com.cryptocurrencyexchange.view.markets;
+package exchange.currency.crypto.com.cryptocurrencyexchange.ui.markets;
 
 import android.util.Log;
 
@@ -7,14 +7,12 @@ import exchange.currency.crypto.com.cryptocurrencyexchange.model.api.CryptoCurre
 import exchange.currency.crypto.com.cryptocurrencyexchange.model.json.CryptoResult;
 import exchange.currency.crypto.com.cryptocurrencyexchange.model.json.MarketUpdate;
 import exchange.currency.crypto.com.cryptocurrencyexchange.view.base.BasePresenter;
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.markets.MarketView.Presenter;
-import exchange.currency.crypto.com.cryptocurrencyexchange.view.markets.MarketView.View;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class MarketPresenter extends BasePresenter<View> implements Presenter {
+public class MarketPresenter extends BasePresenter<MarketView.View> implements MarketView.Presenter{
 
     private static final String TAG = MarketPresenter.class.getSimpleName();
     private MarketView.View view;
